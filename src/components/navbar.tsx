@@ -13,12 +13,12 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { ThemeToggle } from "@/components/theme-toggle";
-import { useLenis } from "@/components/smooth-scroll-provider";
+import { useScrollTo } from "@/hooks/use-scroll-to";
 import { navItems, type NavItem } from "@/lib/nav-items";
 import { profile } from "@/data/profile";
 
 export function Navbar() {
-  const lenisRef = useLenis();
+  const scrollTo = useScrollTo();
   const [open, setOpen] = React.useState(false);
 
   function handleNavClick(
@@ -30,15 +30,7 @@ export function Navbar() {
     if (!href.startsWith("#")) return;
 
     event.preventDefault();
-    const target = document.querySelector(href);
-    if (!target) return;
-
-    const lenis = lenisRef?.current;
-    if (lenis) {
-      lenis.scrollTo(target as HTMLElement, { offset: -72 });
-    } else {
-      target.scrollIntoView({ behavior: "smooth" });
-    }
+    scrollTo(href);
   }
 
   return (

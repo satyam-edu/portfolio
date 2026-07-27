@@ -73,7 +73,7 @@ export default function RootLayout({
         >
           <SmoothScrollProvider>
             <Navbar />
-            {children}
+            <main className="flex flex-1 flex-col">{children}</main>
           </SmoothScrollProvider>
         </ThemeProvider>
       </body>
