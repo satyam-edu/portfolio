@@ -1,6 +1,9 @@
 export default function Home() {
   return (
-    <main className="flex flex-1 flex-col items-center justify-center gap-4 px-6 text-center">
+    <main
+      id="home"
+      className="flex flex-1 flex-col items-center justify-center gap-4 px-6 text-center"
+    >
       <p className="text-sm font-medium uppercase tracking-widest text-muted-foreground">
         Portfolio in progress
       </p>

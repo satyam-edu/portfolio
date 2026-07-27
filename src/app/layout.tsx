@@ -2,7 +2,8 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-import { ThemeToggle } from "@/components/theme-toggle";
+import { SmoothScrollProvider } from "@/components/smooth-scroll-provider";
+import { Navbar } from "@/components/navbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -70,11 +71,10 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {/* Temporary placement until the Step 4 navbar lands, then this moves into the header. */}
-          <div className="fixed right-4 top-4 z-50">
-            <ThemeToggle />
-          </div>
-          {children}
+          <SmoothScrollProvider>
+            <Navbar />
+            {children}
+          </SmoothScrollProvider>
         </ThemeProvider>
       </body>
     </html>
