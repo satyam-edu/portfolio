@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { SmoothScrollProvider } from "@/components/smooth-scroll-provider";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
+import { ScrollProgress } from "@/components/scroll-progress";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -74,6 +75,7 @@ export default function RootLayout({
         >
           <SmoothScrollProvider>
             <Navbar />
+            <ScrollProgress />
             <main className="flex flex-1 flex-col">{children}</main>
             <Footer />
           </SmoothScrollProvider>
