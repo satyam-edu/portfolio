@@ -7,12 +7,11 @@ export const profile: Profile = {
   phone: "+91-7050174252",
   location: "New Delhi, India",
   summary:
-    "Full stack developer specializing in React, Next.js, and TypeScript, with hands-on experience shipping production-ready web applications — from freelance client projects to full-stack product features.",
+    "Full stack developer specializing in React, Next.js, and TypeScript, with hands on experience shipping production ready web applications from freelance client projects to full Stack product features.",
   resumeUrl: "/Satyam_Resume.pdf",
   links: {
-    // TODO(Satyam): replace with your real profile URLs
-    linkedin: "",
-    github: "",
-    codolio: "",
+    linkedin: "https://linkedin.com/in/satyam-in",
+    github: "https://github.com/satyam-edu",
+    codolio: "https://codolio.com/profile/Satyam_edu",
   },
 };
