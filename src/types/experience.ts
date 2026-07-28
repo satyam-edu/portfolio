@@ -4,4 +4,5 @@ export interface ExperienceItem {
   duration: string;
   link?: string;
   bullets: string[];
+  technologies?: string[];
 }

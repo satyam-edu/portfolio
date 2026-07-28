@@ -24,4 +24,13 @@ export const experience: ExperienceItem[] = [
       "Implemented JWT authentication, role-based access control (RBAC), code reviews, testing, and bug fixes to maintain application stability.",
     ],
   },
+  {
+    company: "Pephot Solutions",
+    role: "Graphic Design & UI Design Intern",
+    duration: "Jul 2025 – Oct 2025",
+    bullets: [
+      "Designed 70+ social media creatives, marketing assets, and responsive UI layouts while maintaining typography, color consistency, and strict brand guidelines.",
+      "Collaborated closely with cross-functional teams to convert design concepts into production-ready assets.",
+    ],
+  },
 ];

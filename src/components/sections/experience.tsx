@@ -2,6 +2,7 @@
 
 import { motion } from "motion/react";
 
+import { Badge } from "@/components/ui/badge";
 import { experience } from "@/data/experience";
 
 export function Experience() {
@@ -51,6 +52,15 @@ export function Experience() {
                 <li key={bullet}>{bullet}</li>
               ))}
             </ul>
+            {item.technologies && (
+              <div className="mt-4 flex flex-wrap gap-2">
+                {item.technologies.map((tech) => (
+                  <Badge key={tech} variant="outline">
+                    {tech}
+                  </Badge>
+                ))}
+              </div>
+            )}
           </motion.li>
         ))}
       </ol>
