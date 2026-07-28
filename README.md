@@ -1,4 +1,4 @@
-# Satyam — Developer Portfolio
+# Satyam - Portfolio
 
 Personal portfolio built with Next.js, TypeScript, Tailwind CSS, shadcn/ui, and React Three Fiber.
 
