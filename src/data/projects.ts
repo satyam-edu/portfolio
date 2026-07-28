@@ -39,4 +39,34 @@ export const projects: ProjectItem[] = [
     ],
     stack: ["Python", "REST APIs", "HMAC-SHA256", "argparse", "Logging"],
   },
+  {
+    name: "Hotel Kamala Inn Grand – Booking Website",
+    status: "Live",
+    link: "https://www.kamalainngrand.com",
+    description: [
+      "Built a premium, dark-themed booking website for Hotel Kamala Inn Grand featuring a conversion-optimized guest portal and dynamic media gallery.",
+      "Implemented an intelligent room allocation calculator with smooth WhatsApp redirection, using a modular frontend structured for real-time cloud backends.",
+    ],
+    stack: ["React", "TypeScript", "Tailwind CSS"],
+  },
+  {
+    name: "North Peak Digital",
+    status: "Live",
+    link: "https://north-peak-digital-beige.vercel.app/",
+    description: [
+      "A marketing site for North Peak Digital, a fictional web design & development studio, built as the Web Development submission for the Digital Heroes internship task.",
+      "Built with React 19 and Vite, using Motion for scroll-linked reveals and micro-interactions and Lenis for smooth inertia scrolling.",
+    ],
+    stack: ["React", "Vite", "Tailwind CSS", "Motion", "Lenis"],
+  },
+  {
+    name: "Youth Global HQ – Landing Page Prototype",
+    status: "Live",
+    link: "https://youth-global-hq.vercel.app/",
+    description: [
+      "A high-fidelity, interactive landing page prototype for Youth Global HQ, India's youth-driven media and creator ecosystem spanning live events, shows, music, and courses.",
+      "Built as a client-facing design pitch with working navigation, a filterable events grid, animated stats, and a newsletter form — entirely framework-free, static HTML/CSS/JS.",
+    ],
+    stack: ["HTML", "CSS", "JavaScript"],
+  },
 ];

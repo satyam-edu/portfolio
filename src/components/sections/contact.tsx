@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { useActionState } from "react";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -27,75 +27,58 @@ export function Contact() {
   }, [state.status]);
 
   return (
-    <section id="contact" className="mx-auto max-w-3xl px-6 py-24">
-      <div className="mb-12 flex flex-col items-center gap-3 text-center">
-        <p className="text-sm font-medium uppercase tracking-widest text-muted-foreground">
-          Get in touch
-        </p>
-        <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
-          Contact
+    <section id="contact" className="mx-auto max-w-2xl px-6 py-24">
+      <div className="rounded-xl border border-border bg-card p-8 sm:p-10">
+        <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+          Contact Form
         </h2>
-        <p className="max-w-md text-balance text-muted-foreground">
-          Have a project in mind or just want to say hi? My inbox is open.
-        </p>
-      </div>
-
-      <div className="grid gap-10 sm:grid-cols-[1fr_1.4fr]">
-        <div className="space-y-4">
+        <p className="mt-3 text-muted-foreground">
+          Please contact me directly at{" "}
           <a
             href={`mailto:${profile.email}`}
-            className="flex items-center gap-3 text-sm text-muted-foreground transition-colors hover:text-foreground"
+            className="font-medium text-foreground underline underline-offset-4"
           >
-            <Mail className="size-4 shrink-0" />
             {profile.email}
-          </a>
-          <a
-            href={`tel:${profile.phone.replace(/\s+/g, "")}`}
-            className="flex items-center gap-3 text-sm text-muted-foreground transition-colors hover:text-foreground"
-          >
-            <Phone className="size-4 shrink-0" />
-            {profile.phone}
-          </a>
-          <p className="flex items-center gap-3 text-sm text-muted-foreground">
-            <MapPin className="size-4 shrink-0" />
-            {profile.location}
-          </p>
-        </div>
+          </a>{" "}
+          or drop your info here.
+        </p>
 
-        <form ref={formRef} action={formAction} className="space-y-5">
-          <div className="space-y-2">
-            <Label htmlFor="name">Name</Label>
-            <Input id="name" name="name" placeholder="Your name" required />
-            {state.fieldErrors?.name && (
-              <p className="text-sm text-destructive">
-                {state.fieldErrors.name}
-              </p>
-            )}
+        <form ref={formRef} action={formAction} className="mt-8 space-y-5">
+          <div className="grid gap-5 sm:grid-cols-2">
+            <div className="space-y-2">
+              <Label htmlFor="name">Full name</Label>
+              <Input id="name" name="name" placeholder="Your Name" required />
+              {state.fieldErrors?.name && (
+                <p className="text-sm text-destructive">
+                  {state.fieldErrors.name}
+                </p>
+              )}
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="email">Email Address</Label>
+              <Input
+                id="email"
+                name="email"
+                type="email"
+                placeholder="you@example.com"
+                required
+              />
+              {state.fieldErrors?.email && (
+                <p className="text-sm text-destructive">
+                  {state.fieldErrors.email}
+                </p>
+              )}
+            </div>
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="email">Email</Label>
-            <Input
-              id="email"
-              name="email"
-              type="email"
-              placeholder="you@example.com"
-              required
-            />
-            {state.fieldErrors?.email && (
-              <p className="text-sm text-destructive">
-                {state.fieldErrors.email}
-              </p>
-            )}
-          </div>
-
-          <div className="space-y-2">
-            <Label htmlFor="message">Message</Label>
+            <Label htmlFor="message">Your Message</Label>
             <Textarea
               id="message"
               name="message"
               rows={5}
-              placeholder="What's on your mind?"
+              placeholder="Tell me about your project..."
               required
             />
             {state.fieldErrors?.message && (
@@ -105,8 +88,13 @@ export function Contact() {
             )}
           </div>
 
-          <Button type="submit" disabled={isPending} className="w-full sm:w-auto">
+          <p className="text-sm text-muted-foreground">
+            I&apos;ll never share your data with anyone else. Pinky promise!
+          </p>
+
+          <Button type="submit" disabled={isPending} className="w-full">
             {isPending ? "Sending..." : "Send Message"}
+            <ChevronRight className="size-4" />
           </Button>
 
           {state.status !== "idle" && (
