@@ -1,5 +1,6 @@
 "use client";
 
+import * as React from "react";
 import dynamic from "next/dynamic";
 import { ArrowRight } from "lucide-react";
 
@@ -19,13 +20,29 @@ const HeroCanvas = dynamic(
 
 export function Hero() {
   const scrollTo = useScrollTo();
+  const [showCanvas, setShowCanvas] = React.useState(false);
+
+  React.useEffect(() => {
+    // The particle canvas is decorative and its JS chunk is heavy (three.js +
+    // R3F) — deferring it until the browser is idle keeps it from competing
+    // with the hero copy for main-thread time during first paint.
+    if (typeof window.requestIdleCallback === "function") {
+      const id = window.requestIdleCallback(() => setShowCanvas(true), {
+        timeout: 1500,
+      });
+      return () => window.cancelIdleCallback(id);
+    }
+
+    const id = window.setTimeout(() => setShowCanvas(true), 200);
+    return () => window.clearTimeout(id);
+  }, []);
 
   return (
     <section
       id="home"
       className="relative flex min-h-[calc(100svh-4rem)] flex-col items-center justify-center overflow-hidden px-6 text-center"
     >
-      <HeroCanvas />
+      {showCanvas && <HeroCanvas />}
 
       <div className="relative z-10 flex flex-col items-center gap-6">
         <p className="text-sm font-medium uppercase tracking-widest text-muted-foreground">
